@@ -7,7 +7,9 @@ body {
   padding-bottom: 45px;
   width: 70%;
   margin: 8.4% 15% 8.1% 15%;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  
   position: relative;
 }
 .left{
@@ -178,3 +180,16 @@ a:hover {
 .upar li{
   padding-right: 9px;
 }
+
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+}
+  .left, .right{
+    width:100%;    
+}
+
