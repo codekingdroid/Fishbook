@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css"
+    />
+  </head>
+  <body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/tailwind.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <div class="flex justify-center items-center h-screen">
+      <div class="bg-gray-200 w-96 rounded-lg shadow-xl">
+        <div class="flex justify-end">
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="flex justify-end">
+          <input
+            type="text"
+            class="w-80 text-right text-gray-700 text-3xl"
+            id="result"
+            value="0"
+          />
+        </div>
+        <div class="grid grid-cols-4 gap-1">
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="clearScreen()"
+          >
+            AC
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="backSpace()"
+          >
+            <i class="fas fa-backspace"></i>
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="percent()"
+          >
+            %
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="divide()"
+          >
+            /
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert(7)"
+          >
+            7
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert(8)"
+          >
+            8
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert(9)"
+          >
+            9
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="multiply()"
+          >
+            *
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert(4)"
+          >
+            4
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert(5)"
+          >
+            5
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert(6)"
+          >
+            6
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="minus()"
+          >
+            -
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert(1)"
+          >
+            1
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert(2)"
+          >
+            2
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert(3)"
+          >
+            3
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="plus()"
+          >
+            +
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert(0)"
+          >
+            0
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="insert('.')"
+          >
+            .
+          </button>
+          <button
+            class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            onclick="equal()"
+          >
+            =
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var result = document.getElementById("result");
+      function insert(num) {
+        result.value = result.value + num;
+      }
+      function equal() {
+        result.value = eval(result.value);
+      }
+      function clearScreen() {
+        result.value = "";
+      }
+      function backSpace() {
+        var number = result.value;
+        var len = number.length - 1;
+        var newNumber = number.substring(0, len);
+        result.value = newNumber;
+      }
+      function percent() {
+        result.value = result.value / 100;
+      }
+      function divide() {
+        result.value = result.value + "/";
+      }
+      function multiply() {
+        result.value = result.value + "*";
+      }
+      function minus() {
+        result.value = result.value + "-";
+      }
+      function plus() {
+        result.value = result.value + "+";
+      }
+    </script>
+  </body>
+</html>
